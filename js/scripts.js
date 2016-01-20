@@ -1,27 +1,20 @@
 
 var toPigLatin = function(phrase) {
-  var finalWord = 0;
-  var wordArray = phrase.split(" ");
+var finalWord = 0;
+var wordArray = phrase.split(" ");
 
-  for (i=0; i < wordArray.length; i++) {
-    if (wordArray[i].charAt(0) === "a") {
-      finalWord = wordArray[i] += "ay";
-    } else if (wordArray[i].charAt(0) === "e") {
-      finalWord = wordArray[i] +=  "ay";
-    } else if (wordArray[i].charAt(0) === "i") {
-      finalWord = wordArray[i] +=  "ay";
-    } else if (wordArray[i].charAt(0) === "o") {
-      finalWord = wordArray[i] +=  "ay";
-    } else if (wordArray[i].charAt(0) === "u") {
-      finalWord = wordArray[i] +=  "ay";
-    } else {
-      var firstLetter = wordArray[i].charAt(0);
-      var restOfword = wordArray[i].slice(1);
-      finalWord = restOfword + firstLetter + "ay";
+for (i=0; i < wordArray.length; i++) {
+  for (j = 0; j < wordArray[i].length; j++) {
+    if (wordArray[i].charAt(j) === "a" || wordArray[i].charAt(j) === "e" || wordArray[i].charAt(j) === "i" || wordArray[i].charAt(j) === "o" || wordArray[i].charAt(j) === "u") {
+      var firstLetters = wordArray[i].substring(0, j);
+      var restOfword = wordArray[i].slice(j);
     }
-    console.log(finalWord);
+    finalWord = restOfword + firstLetters + "ay";
+    // } else {
+    //   finalWord = wordArray[i] + "ay";
+    // }
   }
-  // return(wordArray);
-  // console.log(wordArray);
+  console.log(finalWord);
+  }
 }
-toPigLatin("out all dry every target any");
+toPigLatin("out all dry every chair target any");
