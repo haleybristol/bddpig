@@ -1,20 +1,14 @@
-
 var toPigLatin = function(phrase) {
-var finalWord = 0;
-var wordArray = phrase.split(" ");
-
-for (i=0; i < wordArray.length; i++) {
-  for (j = 0; j < wordArray[i].length; j++) {
-    if (wordArray[i].charAt(j) === "a" || wordArray[i].charAt(j) === "e" || wordArray[i].charAt(j) === "i" || wordArray[i].charAt(j) === "o" || wordArray[i].charAt(j) === "u") {
-      var firstLetters = wordArray[i].substring(0, j);
-      var restOfword = wordArray[i].slice(j);
+  var wordArray = phrase.split(" ");
+  for (i=0; i < wordArray.length; i++) {
+    if (wordArray[i].charAt(0) === "a" || wordArray[i].charAt(0) === "e" || wordArray[i].charAt(0) === "i" || wordArray[i].charAt(0) === "o" || wordArray[i].charAt(0) === "u") {
+      var finalWord = wordArray[i] += "ay";
+    } else {
+      var firstLetter = wordArray[i].charAt(0);
+      var restOfword = wordArray[i].slice(1);
+      finalWord = restOfword + firstLetter + "ay";
     }
-    finalWord = restOfword + firstLetters + "ay";
-    // } else {
-    //   finalWord = wordArray[i] + "ay";
-    // }
-  }
-  console.log(finalWord);
+    console.log(finalWord);
   }
 }
-toPigLatin("out all dry every chair target any");
+toPigLatin("out all dry every target any");
